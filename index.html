@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Love ❤️</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial, sans-serif;
+background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+text-align:center;
+color:#333;
+overflow-x:hidden;
+}
+
+.container{
+padding:40px;
+}
+
+h1{
+color:#ff3366;
+font-size:40px;
+}
+
+.characters{
+font-size:50px;
+margin:20px;
+}
+
+button{
+padding:12px 25px;
+border:none;
+border-radius:25px;
+background:#ff3366;
+color:white;
+font-size:16px;
+cursor:pointer;
+margin:10px;
+}
+
+button:hover{
+background:#ff1a53;
+}
+
+.counter{
+font-size:30px;
+margin-top:20px;
+color:#ff3366;
+}
+
+.gallery img{
+width:200px;
+border-radius:15px;
+margin:10px;
+}
+
+.qr img{
+width:150px;
+margin-top:20px;
+}
+
+/* Love Letter Popup */
+
+.popup{
+display:none;
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+max-width:400px;
+}
+
+/* Floating hearts */
+
+.heart{
+position:absolute;
+font-size:20px;
+animation:float 6s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(100vh);}
+100%{transform:translateY(-10vh);}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>My love Aishaaa ❤️</h1>
+
+<div class="characters">
+🐻 💖 🐰 💖 🐱
+</div>
+
+<p>You are the most beautiful part of my life. I am lucky to have you. ❤️</p>
+
+<button onclick="openLetter()">Open Love Letter 💌</button>
+
+<button onclick="loveYou()">Send Love ❤️</button>
+
+<div class="counter">
+I Love You Count: <span id="count">0</span>
+</div>
+
+<h2>Our Memories 📸</h2>
+
+<div class="gallery">
+<img src="image1.png">
+<img src="image2.png">
+</div>
+
+<div class="qr">
+<p>Scan Our Love QR 💕</p>
+<img src="qr.png">
+</div>
+
+</div>
+
+<!-- Love Letter -->
+
+<div class="popup" id="letter">
+
+<h2>My Love 💖</h2>
+
+<p>
+My dear wife,  
+Every day with you feels like a beautiful dream.  
+Your smile makes my world brighter and your love makes my life complete.  
+Thank you for being my partner, my best friend, and my happiness.  
+I promise to love you forever. ❤️
+</p>
+
+<button onclick="closeLetter()">Close</button>
+
+</div>
+
+<audio autoplay loop>
+<source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+let count=0
+
+function loveYou(){
+count++
+document.getElementById("count").innerText=count
+}
+
+function openLetter(){
+document.getElementById("letter").style.display="block"
+}
+
+function closeLetter(){
+document.getElementById("letter").style.display="none"
+}
+
+function createHearts(){
+const heart=document.createElement("div")
+heart.classList.add("heart")
+heart.innerHTML="❤️"
+heart.style.left=Math.random()*100+"vw"
+heart.style.fontSize=Math.random()*30+10+"px"
+
+document.body.appendChild(heart)
+
+setTimeout(()=>{
+heart.remove()
+},6000)
+}
+
+setInterval(createHearts,500)
+
+</script>
+
+</body>
+</html>
